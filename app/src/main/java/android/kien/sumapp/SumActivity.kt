@@ -1,6 +1,7 @@
 package android.kien.sumapp
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -10,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class SumActivity : AppCompatActivity() {
     private lateinit var number1EditText: EditText
     private lateinit var number2EditText: EditText
     private lateinit var sumButton: Button
@@ -29,13 +30,14 @@ class MainActivity : AppCompatActivity() {
         number1EditText = findViewById(R.id.number1EditTextID)
         number2EditText = findViewById(R.id.number2EditTextID)
         sumButton = findViewById(R.id.button)
-        answerTextView = findViewById(R.id.answerTextView)
 
         sumButton.setOnClickListener {
             val number1 = number1EditText.text.toString().toInt()
             val number2 = number2EditText.text.toString().toInt()
             val sum = number1 + number2
-            answerTextView.text = "Answer: $sum"
+            val intent = Intent(this, SumResultActivity::class.java)
+            intent.putExtra("key", sum.toString())
+            startActivity(intent)
         }
     }
 }

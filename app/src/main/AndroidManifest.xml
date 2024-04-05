@@ -13,7 +13,19 @@
         android:theme="@style/Theme.SumApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".SumResultActivity"
+            android:exported="false" />
+        <activity
+            android:name="listview.ListViewProduct"
+            android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".SumActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
